@@ -28,6 +28,15 @@ i {
   }
 }
 
+// section#nowPlaying {
+//   h1,h4 {
+//     color: white;
+//   }
+//   i {
+//     color: white;
+//   }
+// }
+
 
 div.progress-container {
   width: 220px;
@@ -87,6 +96,7 @@ div.item {
     border-radius: 3px;
   }
   
+
   p {
     margin-top: -5px;
     color: #6f6f6f !important;
@@ -97,3 +107,4 @@ div.item {
 i:hover {
   cursor: pointer;
 }
+@import './auth.scss';

@@ -15,6 +15,13 @@
     "allowlist": {
       "globalShortcut": {
         "all": true
+      },
+      "shell": {
+        "all": true,
+        "execute": false,
+        "open": false,
+        "scope": [],
+        "sidecar": false
       }
     },
     "bundle": {
