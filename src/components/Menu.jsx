@@ -1,5 +1,5 @@
 import { CommandMenu, CommandWrapper, useCommands, useKmenu } from 'kmenu';
-
+import { useEffect } from 'react';
 import {
   FiAlertCircle,
   FiCode,
@@ -23,7 +23,7 @@ import {
 
 import AlbumCover from './AlbumCover';
 
-function Menu({ items }) {
+function Menu({ items, setItems }) {
   const { setOpen } = useKmenu();
 
   const main = [
@@ -166,6 +166,14 @@ function Menu({ items }) {
   const [docsCommands] = useCommands(docs);
   const [shareCommands] = useCommands(share);
 
+  useEffect(() => {
+    main[0].commands.unshift({
+      text: 'Hello With You',
+      icon: <AlbumCover />,
+      perform: () => setOpen(2),
+      shortcuts: { keys: ['⌘', '1'] },
+    });
+  }, []);
   return (
     <CommandWrapper>
       <CommandMenu
