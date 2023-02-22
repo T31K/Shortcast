@@ -63,11 +63,17 @@
     "updater": {
       "active": false
     },
+    "macOSPrivateApi": true,
     "windows": [
       {
         "fullscreen": false,
-        "width": 500,
-        "height": 620,
+        "width": 600,
+        "height": 800,
+        "focus": true,
+        "transparent": true,
+        "hiddenTitle": true,
+        "decorations": false,
+        "titleBarStyle": "Transparent",
         "resizable": false,
         "center": true
       }

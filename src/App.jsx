@@ -3,6 +3,10 @@ import { useTokens } from './hooks/useTokens.js';
 import { debounce } from './helpers/searchHelpers.js';
 import SpotifyWebApi from 'spotify-web-api-node';
 
+import { MenuProvider } from 'kmenu';
+import Menu from './components/Menu.jsx';
+import { config } from './helpers/menuConfigs.js';
+
 function App() {
   const [items, setItems] = useState([]);
   const [search, setSearch] = useState('');
@@ -153,7 +157,14 @@ function App() {
     //     </div>
     //   </section>
     // </main>
-    <main></main>
+    <main>
+      <MenuProvider
+        config={config}
+        dimensions={{ commandHeight: 50, sectionHeight: 40 }}
+      >
+        <Menu items={items} />
+      </MenuProvider>
+    </main>
   );
 }
 

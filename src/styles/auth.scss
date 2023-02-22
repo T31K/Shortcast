@@ -1,4 +1,7 @@
 div#login {
+  background: white;
+  height: 90vh;
+  border-radius: 20px;    
   a {
     background: #1DB954;
     color: white;
@@ -10,8 +13,17 @@ div#login {
 
 
 div#auth {
+  background: white;
+  height: 90vh;
+  border-radius: 20px;    
+  
   flex-direction: column;
   input {
     width: 80%;
+    color: black;
+  }
+  
+  a, button {
+    color: black;
   }
 }
