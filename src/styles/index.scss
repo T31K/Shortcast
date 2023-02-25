@@ -65,6 +65,18 @@ body {
   justify-content: space-around;
 }
 
+.searchContainer {
+  border-bottom: var(--grey10) 1px solid;
+  
+  kbd {
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    margin-left: 5px;
+    font-family: monospace;
+    background-color: rgba(222, 222, 222, 0.18);
+  }
+}
 
 .searchBar {
   border: none;
@@ -72,12 +84,11 @@ body {
   background-color: transparent;
   font-size: 14px;
   height: 50px;
-  width: 100%;
+  width: 80%;
   outline: 0;
   font-family: inherit;
   color: var(--grey1);
   font-weight: 600;
-  border-bottom: var(--grey10) 1px solid;
 }
 
 .commandWrapper {
@@ -95,16 +106,15 @@ body {
 }
 
 .nowPlaying {
-  display: flex;
   width: 100%;
-  padding: 0 10px;
-  height: 68px;  
-  max-height: 68px;
+  padding: 10px;
   border-radius: 6px;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  display: flex;
   background-color: rgba(255, 255, 255, 0.063);
   justify-content: space-between;
+
   .widget {
     display: flex;
     align-items: center;
@@ -145,10 +155,20 @@ body {
       font-size: 34px;
     }
   }
+  
+  kbd {
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    margin-right: 4px;
+    font-family: monospace;
+    background-color: rgba(222, 222, 222, 0.18);
+  }
 }
 
+.display {
 
-
+}
 .option {
   position: relative;
   width: 100%;
