@@ -70,10 +70,9 @@
     "windows": [
       {
         "fullscreen": false,
-        "width": 600,
-        "height": 800,
+        "width": 550,
+        "height": 550,
         "focus": true,
-        "alwaysOnTop": true,
         "transparent": true,
         "hiddenTitle": true,
         "decorations": false,

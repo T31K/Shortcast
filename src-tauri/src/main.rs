@@ -6,6 +6,7 @@ fn main() {
     } else {
       tauri::Menu::default()
     })
+    .plugin(tauri_plugin_store::Builder::default().build())
     .run(context)
     .expect("error while running tauri application");
 }
