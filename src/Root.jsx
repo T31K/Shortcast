@@ -23,7 +23,7 @@ function Root() {
   }, [email]);
 
   const getToken = async () => {
-    let token = { email: 't31kmunwong@gmail.com' };
+    // let token = { email: 't31kmunwong@gmail.com' };
     if (token) {
       console.log('token found');
       setEmail(token.email);

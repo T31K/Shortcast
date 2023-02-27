@@ -1,4 +1,54 @@
-function CommandWrapper({ items, activeIndex }) {
+import { useEffect, useState, useRef } from 'react';
+import { useHotkeys } from 'react-hotkeys-hook';
+import { useTokens } from '../hooks/useTokens.js';
+
+function CommandWrapper({ items, activeIndex, setActiveIndex, spotifyApi }) {
+  const { token, setToken } = useTokens();
+  const [page, setPage] = useState(0);
+  const contentRef = useRef(null);
+
+  const playSong = async (spotifyUri) => {
+    let { uri } = items[activeIndex];
+    try {
+      await spotifyApi.play({ uris: [uri] });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useHotkeys(
+    'tab',
+    () => {
+      setActiveIndex((prevActiveIndex) => (prevActiveIndex < 20 ? prevActiveIndex + 1 : 20));
+    },
+    { preventDefault: true }
+  );
+
+  useHotkeys(
+    'shift+tab',
+    () => {
+      setActiveIndex((prevActiveIndex) => (prevActiveIndex > 0 ? prevActiveIndex - 1 : 0));
+    },
+    { preventDefault: true }
+  );
+
+  useHotkeys(
+    'enter',
+    () => {
+      playSong();
+    },
+    { preventDefault: true }
+  );
+  useEffect(() => {
+    const el = contentRef.current;
+    const activePage = Math.ceil((activeIndex + 1) / 6) - 1;
+
+    el.scrollTo({
+      top: activePage * 300,
+      behavior: 'smooth',
+    });
+  }, [activeIndex]);
+
   return (
     <div className="commandWrapper">
       <div className="nowPlaying">
@@ -18,7 +68,10 @@ function CommandWrapper({ items, activeIndex }) {
           <i className="ri-skip-forward-fill"></i>
         </div>
       </div>
-      <div className="content">
+      <div
+        className="content"
+        ref={contentRef}
+      >
         {items.map((item, key) => {
           return (
             <div

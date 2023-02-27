@@ -17,7 +17,7 @@ function App() {
   const { token, setToken } = useTokens();
 
   useEffect(() => {
-    registerKey();
+    registerGlobals();
   }, []);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function App() {
     setSpotifyApi(api);
   }, [token.access_token]);
 
-  async function registerKey() {
+  async function registerGlobals() {
     await register('CommandOrControl+Shift+L', async () => {
       await appWindow.setAlwaysOnTop(true);
       await appWindow.setFocus();
@@ -38,12 +38,6 @@ function App() {
         await appWindow.setAlwaysOnTop(false);
         await appWindow.hide();
       }
-      if (event.key === 'Tab') {
-        setActiveIndex((prevActiveIndex) => prevActiveIndex + 1);
-      }
-      if (event.key === 'Enter' || event.key === 'Return') {
-        console.log(items);
-      }
     });
   }
 
@@ -52,13 +46,16 @@ function App() {
       <Search
         search={search}
         setSearch={setSearch}
+        setActiveIndex={setActiveIndex}
         items={items}
         setItems={setItems}
         spotifyApi={spotifyApi}
       />
       <Command
         items={items}
+        setActiveIndex={setActiveIndex}
         activeIndex={activeIndex}
+        spotifyApi={spotifyApi}
       />
       <Footer />
     </>
