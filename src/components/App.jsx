@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useTokens } from '../hooks/useTokens.js';
 import SpotifyWebApi from 'spotify-web-api-node';
+import { newSpotifyApi } from '../helpers/newState.js';
+
 import { register } from '@tauri-apps/api/globalShortcut';
 import { appWindow } from '@tauri-apps/api/window';
 
-import Command from './Command.jsx';
+import NowPlaying from './NowPlaying.jsx';
+import Content from './Content.jsx';
 import Search from './Search.jsx';
 import Footer from './Footer.jsx';
 
@@ -12,7 +15,8 @@ function App() {
   const [items, setItems] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [search, setSearch] = useState('');
-  const [spotifyApi, setSpotifyApi] = useState(null);
+  const [currentTrack, setCurrentTrack] = useState({});
+  const [spotifyApi, setSpotifyApi] = useState(newSpotifyApi);
   const { token, setToken } = useTokens();
 
   useEffect(() => {
@@ -20,9 +24,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const api = new SpotifyWebApi();
-    api.setAccessToken(token.access_token);
-    setSpotifyApi(api);
+    spotifyApi.setAccessToken(token.access_token);
   }, [token.access_token]);
 
   async function registerGlobals() {
@@ -43,7 +45,7 @@ function App() {
         await appWindow.setAlwaysOnTop(false);
         await appWindow.hide();
       }
-    })();
+    });
   }
 
   return (
@@ -56,12 +58,19 @@ function App() {
         setItems={setItems}
         spotifyApi={spotifyApi}
       />
-      <Command
-        items={items}
-        setActiveIndex={setActiveIndex}
-        activeIndex={activeIndex}
-        spotifyApi={spotifyApi}
-      />
+      <div className="commandWrapper">
+        <NowPlaying
+          currentTrack={currentTrack}
+          spotifyApi={spotifyApi}
+        />
+        <Content
+          items={items}
+          setActiveIndex={setActiveIndex}
+          setCurrentTrack={setCurrentTrack}
+          activeIndex={activeIndex}
+          spotifyApi={spotifyApi}
+        />
+      </div>
       <Footer />
     </>
   );

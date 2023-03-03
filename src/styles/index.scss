@@ -125,7 +125,7 @@ body {
   .widget {
     display: flex;
     align-items: center;
-    width: 60%;
+    width: 80%;
     margin-left: 15px;
     
     .currentTrack {
@@ -255,8 +255,11 @@ body {
     margin-left: 5px;
     font-family: monospace;
     background-color: rgba(222, 222, 222, 0.18);
-    
-
+  }
+  
+  .upgrade {
+    display: flex;
+    padding-left: 35px;
   }
 }
 
