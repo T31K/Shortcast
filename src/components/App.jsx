@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTokens } from '../hooks/useTokens.js';
 import SpotifyWebApi from 'spotify-web-api-node';
-
 import { register } from '@tauri-apps/api/globalShortcut';
 import { appWindow } from '@tauri-apps/api/window';
 
@@ -27,7 +26,7 @@ function App() {
   }, [token.access_token]);
 
   async function registerGlobals() {
-    await register('CommandOrControl+Shift+L', async () => {
+    await register('CommandOrControl+Shift+;', async () => {
       await appWindow.setAlwaysOnTop(true);
       await appWindow.setFocus();
       await appWindow.show();
@@ -39,6 +38,12 @@ function App() {
         await appWindow.hide();
       }
     });
+    await appWindow.onFocusChanged(async ({ payload: focused }) => {
+      if (!focused) {
+        await appWindow.setAlwaysOnTop(false);
+        await appWindow.hide();
+      }
+    })();
   }
 
   return (

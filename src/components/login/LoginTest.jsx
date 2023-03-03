@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTokens } from '../../hooks/useTokens.js';
+import { setConfig } from '../../helpers/fsHelper.js';
 import axios from 'axios';
 
 const AUTH_URL =
@@ -17,6 +18,7 @@ function LoginTest({ titleText, isAuth, setIsAuth }) {
     try {
       const res = await axios.post('http://localhost:3001/authorize', { email });
       if (res.status === 200) {
+        await setConfig(res.data);
         setToken(res.data);
         setIsAuth(true);
       }

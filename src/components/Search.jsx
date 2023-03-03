@@ -53,7 +53,7 @@ function Search({ search, setSearch, setItems, items, spotifyApi, setActiveIndex
   return (
     <div className="searchContainer">
       <input
-        placeholder="Search for your favourite jams"
+        placeholder="Search for your favourite songs, lyrics..."
         className="searchBar"
         spellCheck={false}
         ref={inputRef}

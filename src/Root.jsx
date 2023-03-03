@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
-import { Store } from 'tauri-plugin-store-api';
 import TokenContext from './stores/TokenContext.js';
+import { getConfig, setConfig } from './helpers/fsHelper.js';
 import axios from 'axios';
 
 import App from './components/App.jsx';
@@ -23,9 +23,10 @@ function Root() {
   }, [email]);
 
   const getToken = async () => {
-    // let token = { email: 't31kmunwong@gmail.com' };
-    if (token) {
-      console.log('token found');
+    const config = await getConfig();
+    if (config) {
+      const token = JSON.parse(config);
+      console.log(token);
       setEmail(token.email);
     } else {
       setIsLoading(false);
@@ -35,9 +36,11 @@ function Root() {
 
   const callServer = async () => {
     if (email) {
+      console.log('callServer()');
       try {
-        const res = await axios.post('http://localhost:3001/authorize', { email });
+        const res = await axios.post('http://localhost:3001/refresh', { email });
         if (res.status === 200) {
+          await setConfig(res.data);
           setToken(res.data);
           setIsAuth(true);
           setIsLoading(false);
@@ -45,7 +48,6 @@ function Root() {
       } catch (err) {
         console.error(err);
       }
-      console.log('callServer()');
     }
   };
 
