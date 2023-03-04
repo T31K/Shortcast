@@ -23,7 +23,14 @@
         "setAlwaysOnTop": true
       },
       "shell": {
-        "open": true
+        "open": true,
+        "execute": true,
+        "scope": [{
+          "name": "get-track",
+          "cmd": "osascript",
+          "args": ["-e", { "validator": "\\S+" }]
+        }]
+        
       },
       "fs": {
         "all": true,

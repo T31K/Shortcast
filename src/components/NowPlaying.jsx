@@ -3,45 +3,37 @@ import { useTokens } from '../hooks/useTokens';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { appWindow } from '@tauri-apps/api/window';
 import { newCurrentTrack } from '../helpers/newState.js';
+import { getNowPlaying } from '../helpers/trackHelper';
 
 function NowPlaying({ spotifyApi }) {
   const { token, setToken } = useTokens();
   const [currentTrack, setCurrentTrack] = useState(newCurrentTrack);
+
   useEffect(() => {
     setFocusChanged();
   }, []);
 
   const setFocusChanged = async () => {
+    let interval;
     await appWindow.onFocusChanged(async ({ payload: focused }) => {
       if (focused) {
-        getCurrentTrack();
+        interval = setInterval(async () => {
+          let data = await getNowPlaying();
+          if (data) {
+            setCurrentTrack(data);
+          }
+        }, 800);
+      } else {
+        clearInterval(interval);
       }
     });
-  };
-
-  const getCurrentTrack = async () => {
-    try {
-      const res = await spotifyApi?.getMyCurrentPlayingTrack();
-      if (res?.body?.item) {
-        const { name, artists, album } = res.body.item;
-        const artist = artists[0]?.name;
-        const albumCover = album.images[1]?.url;
-        setCurrentTrack({
-          name: name,
-          artist: artist,
-          albumCover: albumCover,
-        });
-      }
-    } catch (error) {
-      console.log('Error getting current track:', error);
-    }
   };
 
   return (
     <div className="nowPlaying">
       <div className="widget">
         <img
-          src={currentTrack.albumCover}
+          src={currentTrack.album}
           alt=""
         />
         <div className="currentTrack">
@@ -51,7 +43,7 @@ function NowPlaying({ spotifyApi }) {
       </div>
       <div className="controls">
         <i className="ri-skip-back-fill"></i>
-        <i className="ri-play-circle-fill"></i>
+        <i className={`ri-${currentTrack.state === ' playing' ? 'pause' : 'play'}-circle-fill`}></i>
         <i className="ri-skip-forward-fill"></i>
       </div>
     </div>
