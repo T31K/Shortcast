@@ -14,7 +14,6 @@ function NowPlaying({ spotifyApi }) {
   const setFocusChanged = async () => {
     await appWindow.onFocusChanged(async ({ payload: focused }) => {
       if (focused) {
-        console.log(spotifyApi);
         getCurrentTrack();
       }
     });
@@ -37,6 +36,7 @@ function NowPlaying({ spotifyApi }) {
       console.log('Error getting current track:', error);
     }
   };
+
   return (
     <div className="nowPlaying">
       <div className="widget">
@@ -59,3 +59,5 @@ function NowPlaying({ spotifyApi }) {
 }
 
 export default NowPlaying;
+
+// osascript -e 'tell application "Spotify" to set currentSeconds to (player position as integer)'
