@@ -8,7 +8,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "tauri-react-template",
+    "productName": "shortcast",
     "version": "0.1.0"
   },
   "tauri": {
@@ -52,7 +52,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tarui-react-template.dev",
+      "identifier": "com.shortcast",
       "longDescription": "",
       "macOS": {
         "entitlements": null,

@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useTokens } from '../hooks/useTokens.js';
-import SpotifyWebApi from 'spotify-web-api-node';
-import { newSpotifyApi } from '../helpers/newState.js';
 
-import { register } from '@tauri-apps/api/globalShortcut';
+import SpotifyWebApi from 'spotify-web-api-node';
+import { newSpotifyApi } from '../helpers/stateHelper.js';
+
+import { registerGlobals, unregisterGlobals } from '../helpers/shortcutHelper.js';
 import { appWindow } from '@tauri-apps/api/window';
+import { useHotkeys } from 'react-hotkeys-hook';
 
 import NowPlaying from './NowPlaying.jsx';
 import Content from './Content.jsx';
@@ -21,32 +23,23 @@ function App() {
 
   useEffect(() => {
     registerGlobals();
+    return () => {
+      unregisterGlobals();
+    };
   }, []);
 
   useEffect(() => {
     spotifyApi.setAccessToken(token.access_token);
   }, [token.access_token]);
 
-  async function registerGlobals() {
-    await register('CommandOrControl+Shift+;', async () => {
-      await appWindow.setAlwaysOnTop(true);
-      await appWindow.setFocus();
-      await appWindow.show();
-    });
-    document.addEventListener('keydown', async (event) => {
-      if (event.key === 'Escape') {
-        console.log('Escape key pressed');
-        await appWindow.setAlwaysOnTop(false);
-        await appWindow.hide();
-      }
-    });
-    await appWindow.onFocusChanged(async ({ payload: focused }) => {
-      if (!focused) {
-        await appWindow.setAlwaysOnTop(false);
-        await appWindow.hide();
-      }
-    });
-  }
+  useHotkeys(
+    'esc',
+    async () => {
+      await appWindow.setAlwaysOnTop(false);
+      await appWindow.hide();
+    },
+    { preventDefault: true, enableOnFormTags: ['INPUT'] }
+  );
 
   return (
     <>

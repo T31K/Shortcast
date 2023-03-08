@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useTokens } from '../hooks/useTokens';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { appWindow } from '@tauri-apps/api/window';
-import { newCurrentTrack } from '../helpers/newState.js';
+import { newCurrentTrack } from '../helpers/stateHelper.js';
 import { getNowPlaying } from '../helpers/trackHelper';
 
 function NowPlaying({ spotifyApi }) {
@@ -11,6 +11,7 @@ function NowPlaying({ spotifyApi }) {
 
   useEffect(() => {
     setFocusChanged();
+    getCurrentTrack();
   }, []);
 
   const setFocusChanged = async () => {
@@ -27,6 +28,13 @@ function NowPlaying({ spotifyApi }) {
         clearInterval(interval);
       }
     });
+  };
+
+  const getCurrentTrack = async () => {
+    let data = await getNowPlaying();
+    if (data) {
+      setCurrentTrack(data);
+    }
   };
 
   return (

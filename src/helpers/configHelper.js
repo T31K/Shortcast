@@ -1,8 +1,10 @@
 import { BaseDirectory, createDir, exists, writeTextFile, readTextFile } from '@tauri-apps/api/fs';
 
-const checkConfigExist = async () => {
+const checkConfig = async () => {
   const fileExists = await exists('app.conf', { dir: BaseDirectory.AppData });
-  return fileExists;
+  if (!fileExists) {
+    await writeTextFile(`${BaseDirectory.AppData}/com.shortcast/app.conf`, '');
+  }
 };
 
 export const setConfig = async (data) => {
@@ -10,6 +12,7 @@ export const setConfig = async (data) => {
 };
 
 export const getConfig = async () => {
+  // await checkConfig();
   const contents = await readTextFile('app.conf', { dir: BaseDirectory.AppData });
   return contents;
 };

@@ -82,6 +82,7 @@ function Content({ items, activeIndex, setActiveIndex, spotifyApi, setCurrentTra
             <div
               className={activeIndex !== key ? 'option' : 'option active'}
               key={key}
+
               // onClick={() => playSong(item)}
             >
               <div className="left">
@@ -95,10 +96,7 @@ function Content({ items, activeIndex, setActiveIndex, spotifyApi, setCurrentTra
                   <p>{item?.artists[0]?.name}</p>
                 </div>
               </div>
-              <div className="shortcuts">
-                <kbd>⌘</kbd>
-                <kbd>{key + 1}</kbd>
-              </div>
+              <div className="shortcuts"></div>
             </div>
           );
         })}

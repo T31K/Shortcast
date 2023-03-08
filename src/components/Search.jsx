@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
-import { debounce } from '../helpers/searchHelpers.js';
+import { debounce } from '../helpers/searchHelper.js';
 
 function Search({ search, setSearch, setItems, items, spotifyApi, setActiveIndex }) {
   const inputRef = useRef(null);
@@ -29,12 +29,14 @@ function Search({ search, setSearch, setItems, items, spotifyApi, setActiveIndex
     }
   }, 500);
 
+  const handleBlur = () => {};
+
   useHotkeys(
-    'meta+/',
+    'meta+a',
     () => {
       if (inputRef.current) {
         inputRef.current.focus();
-        inputRef.current.setSelectionRange(inputRef.current.value.length, inputRef.current.value.length);
+        inputRef.current.setSelectionRange(0, inputRef.current.value.length);
       }
     },
     { preventDefault: true }
@@ -59,6 +61,7 @@ function Search({ search, setSearch, setItems, items, spotifyApi, setActiveIndex
         ref={inputRef}
         value={search}
         autoFocus
+        onBlur={() => setTimeout(() => inputRef.current.focus(), 0)}
         onChange={(e) => handleSearch(e)}
       />
       <kbd className="!ml-4">cmd</kbd>

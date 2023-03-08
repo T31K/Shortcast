@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
 import TokenContext from './stores/TokenContext.js';
-import { getConfig, setConfig } from './helpers/fsHelper.js';
+import { getConfig, setConfig } from './helpers/configHelper.js';
 import axios from 'axios';
 
 import App from './components/App.jsx';
@@ -38,7 +38,7 @@ function Root() {
     if (email) {
       console.log('callServer()');
       try {
-        const res = await axios.post('http://localhost:3001/refresh', { email });
+        const res = await axios.post('https://api.docktopus.com/refresh', { email });
         if (res.status === 200) {
           await setConfig(res.data);
           setToken(res.data);
