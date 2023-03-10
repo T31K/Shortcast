@@ -40,7 +40,7 @@ function Content({ items, activeIndex, setActiveIndex, spotifyApi, setCurrentTra
     () => {
       setActiveIndex((prevActiveIndex) => (prevActiveIndex > 0 ? prevActiveIndex - 1 : 0));
     },
-    { preventDefault: true }
+    { preventDefault: true, enableOnFormTags: ['INPUT'] }
   );
 
   useHotkeys(

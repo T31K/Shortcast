@@ -64,8 +64,14 @@ function Search({ search, setSearch, setItems, items, spotifyApi, setActiveIndex
         onBlur={() => setTimeout(() => inputRef.current.focus(), 0)}
         onChange={(e) => handleSearch(e)}
       />
-      <kbd className="!ml-4">cmd</kbd>
-      <kbd>/</kbd>
+      <p className="premium">
+        <a
+          href="https://harmonize.vercel.app"
+          target="_blank"
+        >
+          Upgrade Premium
+        </a>
+      </p>
     </div>
   );
 }

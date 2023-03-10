@@ -68,7 +68,8 @@ body {
 
 .searchContainer {
   border-bottom: var(--grey10) 1px solid;
-  
+  display: flex;
+  align-items: center;
   kbd {
     padding: 3px 6px;
     border-radius: 3px;
@@ -76,6 +77,20 @@ body {
     margin-left: 5px;
     font-family: monospace;
     background-color: rgba(222, 222, 222, 0.18);
+  }
+  
+  .premium {
+    font-size: 12px;
+    text-align: right;
+    margin-left: 20px;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-weight: 600;
+    background-color: rgba(222, 222, 222, 0.18);
+    
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
@@ -85,7 +100,7 @@ body {
   background-color: transparent;
   font-size: 14px;
   height: 50px;
-  width: 80%;
+  width: 70%;
   outline: 0;
   font-family: inherit;
   font-weight: 600;

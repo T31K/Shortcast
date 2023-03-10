@@ -3,7 +3,7 @@ import { BaseDirectory, createDir, exists, writeTextFile, readTextFile } from '@
 const checkConfig = async () => {
   const fileExists = await exists('app.conf', { dir: BaseDirectory.AppData });
   if (!fileExists) {
-    await writeTextFile(`${BaseDirectory.AppData}/com.shortcast/app.conf`, '');
+    await writeTextFile(`${BaseDirectory.AppData}/com.harmonize/app.conf`, '');
   }
 };
 
