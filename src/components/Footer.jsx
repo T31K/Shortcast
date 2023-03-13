@@ -19,6 +19,9 @@ function Footer() {
         <kbd>enter</kbd>
         <p>Play</p>
       </div>
+      {/* <div className="settings">
+        <i class="ri-settings-3-fill"></i>
+      </div> */}
     </div>
   );
 }

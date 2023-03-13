@@ -117,7 +117,10 @@ body {
   max-height: 400px;
   height: 100%;
   padding: 10px 20px;
+  opacity: 0;
+  animation: fadeIn .1s ease-in forwards;
 }
+
 
 .content {
   overflow-y: scroll;
@@ -253,6 +256,11 @@ body {
   align-items: center;
   justify-content: center;
   
+  div.settings {
+    background-color: rgba(222, 222, 222, 0.451);
+    border-radius: 3px;
+    margin-left: 5px;
+  }
   
   div {
     display: flex;
@@ -302,4 +310,44 @@ body {
   .option:nth-child(#{$i}) {
     animation-delay: calc(0.1s * (#{$i} - 1));
   }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+div.settingsWrapper {
+  position: absolute;
+  z-index: 30;
+  background: var(--grey12);
+  opacity: 97%;
+  border-radius: 5px;
+  top: 25px;
+  width: 500px;
+  height: 500px;
+  left: 25px;
+  padding: 40px;
+  display: flex;
+  
+  div.settings-nav {
+    height: 100%;
+    width: 50px;
+    border-radius: 5px;
+    background: var(--grey11);
+  }
+  
+  div.settings-content {
+    height: 100%;
+    width: 400px;
+    margin-left: 10px;
+    border-radius: 5px;
+    background: var(--grey11);
+    padding: 10px;
+  }
+  // animation: fadeIn .4s ease-in forwards;
 }

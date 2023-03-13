@@ -29,8 +29,13 @@
           "name": "get-track",
           "cmd": "osascript",
           "args": ["-e", { "validator": "\\S+" }]
-        }]
-        
+        },
+        {
+          "name": "play",
+          "cmd": "osascript",
+          "args": ["-e", { "validator": "\\S+" }]
+        }
+        ]
       },
       "fs": {
         "all": true,

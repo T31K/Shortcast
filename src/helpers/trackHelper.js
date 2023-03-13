@@ -32,3 +32,19 @@ export const getNowPlaying = () => {
     command.spawn();
   });
 };
+
+export const playTrack = () => {
+  const command = new Command('play', ['-e', 'tell application "Spotify" to play']);
+
+  return new Promise((resolve, reject) => {
+    command.on('close', () => {
+      resolve();
+    });
+
+    command.on('error', (err) => {
+      reject(err);
+    });
+
+    command.spawn();
+  });
+};

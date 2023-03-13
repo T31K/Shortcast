@@ -25,7 +25,11 @@ function Search({ search, setSearch, setItems, items, spotifyApi, setActiveIndex
         setActiveIndex(0);
       }
     } catch (err) {
-      console.error(err);
+      if (err.statusCode === 401) {
+        window.location.reload();
+      } else {
+        console.error(err);
+      }
     }
   }, 500);
 
@@ -66,7 +70,7 @@ function Search({ search, setSearch, setItems, items, spotifyApi, setActiveIndex
       />
       <p className="premium">
         <a
-          href="https://harmonize.vercel.app"
+          href="https://buy.stripe.com/5kA2aba86a9eb5e4gh"
           target="_blank"
         >
           Upgrade Premium

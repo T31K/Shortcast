@@ -37,6 +37,9 @@ function NowPlaying({ spotifyApi }) {
     }
   };
 
+  const prevTrack = async () => {};
+  const nextTrack = async () => {};
+
   return (
     <div className="nowPlaying">
       <div className="widget">

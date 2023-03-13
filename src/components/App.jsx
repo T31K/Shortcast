@@ -11,6 +11,7 @@ import { useHotkeys } from 'react-hotkeys-hook';
 import NowPlaying from './NowPlaying.jsx';
 import Content from './Content.jsx';
 import Search from './Search.jsx';
+import Settings from './Settings.jsx';
 import Footer from './Footer.jsx';
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
         spotifyApi={spotifyApi}
       />
       <div className="commandWrapper">
+        {/* <Settings /> */}
         <NowPlaying
           currentTrack={currentTrack}
           spotifyApi={spotifyApi}

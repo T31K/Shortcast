@@ -4,8 +4,7 @@ import { getConfig, setConfig } from './helpers/configHelper.js';
 import axios from 'axios';
 
 import App from './components/App.jsx';
-import AppTest from './components/AppTest.jsx';
-import LoginTest from './components/login/LoginTest.jsx';
+import Login from './components/Login.jsx';
 import Loading from './components/Loading.jsx';
 
 function Root() {
@@ -59,7 +58,7 @@ function Root() {
         ) : isAuth ? (
           <App />
         ) : (
-          <LoginTest
+          <Login
             titleText="hello"
             setIsAuth={setIsAuth}
             isAuth={isAuth}

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useTokens } from '../../hooks/useTokens.js';
-import { setConfig } from '../../helpers/configHelper.js';
+import { useTokens } from '../hooks/useTokens.js';
+import { setConfig } from '../helpers/configHelper.js';
 import axios from 'axios';
 
 const AUTH_URL =
@@ -10,6 +10,7 @@ function LoginTest({ titleText, isAuth, setIsAuth }) {
   const [email, setEmail] = useState('t31kmunwong@gmail.com');
   const [isClicked, setIsClicked] = useState(false);
   const { token, setToken } = useTokens();
+
   const handleClick = () => {
     setTimeout(() => setIsClicked(true), 1500);
   };
@@ -40,7 +41,7 @@ function LoginTest({ titleText, isAuth, setIsAuth }) {
           />
           <button
             onClick={authUser}
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            className="text-white bg-[#5cbc8b] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 font-semibold"
           >
             Submit
           </button>

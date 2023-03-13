@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { useTokens } from '../hooks/useTokens.js';
+import { playTrack } from '../helpers/trackHelper.js';
 
 function Content({ items, activeIndex, setActiveIndex, spotifyApi, setCurrentTrack }) {
   const { token, setToken } = useTokens();
@@ -11,9 +12,10 @@ function Content({ items, activeIndex, setActiveIndex, spotifyApi, setCurrentTra
     let { uri } = items[activeIndex];
     try {
       await spotifyApi.play({ uris: [uri] });
-      console.log(items[activeIndex]);
     } catch (err) {
-      console.error(err);
+      if (err?.message.includes('NO_ACTIVE_DEVICE')) {
+        playTrack();
+      }
     }
   };
 
@@ -46,7 +48,6 @@ function Content({ items, activeIndex, setActiveIndex, spotifyApi, setCurrentTra
   useHotkeys(
     'enter',
     () => {
-      console.log('enter()');
       playSong();
     },
     { preventDefault: true, enableOnFormTags: ['INPUT'] }
@@ -55,7 +56,6 @@ function Content({ items, activeIndex, setActiveIndex, spotifyApi, setCurrentTra
   useHotkeys(
     'shift+enter',
     () => {
-      console.log('shift+enter');
       addToQueue();
     },
     { preventDefault: true, enableOnFormTags: ['INPUT'] }

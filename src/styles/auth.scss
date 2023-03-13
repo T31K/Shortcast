@@ -1,4 +1,7 @@
 div#login {
+  opacity: 0;
+  animation: fadeIn .5s ease-in forwards;
+  
   a {
     background: #1DB954;
     color: white;
@@ -13,13 +16,27 @@ div#auth {
   align-items: center;
   justify-content: center;
   align-items: center;
-
+  flex-direction: column;
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+  
   input {
-    width: 260px;
+    width: 300px;
     height: 40px;
   }
   button {
-    margin-left: 5px;
+    width: 300px;
     height: 40px;
+    margin-top: 8px;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
