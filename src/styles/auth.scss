@@ -31,6 +31,38 @@ div#auth {
   }
 }
 
+div#onboard {
+  opacity: 0;
+  animation: fadeIn .5s ease-in forwards;
+  display: flex;
+  justify-content: center;    
+  align-items: center;
+  flex-direction: column;
+  
+  div.kbd-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    kbd {
+      border-radius: 8px;
+      padding: 3px 10px;
+      font-size: 30px;
+      margin: 0 3px;
+      background-color: rgba(222, 222, 222, 0.18);  
+    }
+  }
+  
+  button.lfg {
+    background-color: rgba(203, 203, 203, 0.966);
+    font-weight: 600;
+    margin-top: 45px;
+    color: #222;
+    padding: 6px 12px;
+    border-radius: 7px;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -39,4 +71,3 @@ div#auth {
     opacity: 1;
   }
 }
-
