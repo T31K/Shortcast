@@ -16,8 +16,7 @@
     "react-dom": "^18.2.0",
     "react-hotkeys-hook": "^4.3.7",
     "remixicon": "^2.5.0",
-    "spotify-web-api-node": "^5.0.2",
-    "spotify-web-playback": "^1.4.0"
+    "spotify-web-api-node": "^5.0.2"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.0.5",

@@ -15,6 +15,8 @@ function Content({ items, activeIndex, setActiveIndex, spotifyApi, setCurrentTra
     } catch (err) {
       if (err?.message.includes('NO_ACTIVE_DEVICE')) {
         playTrack();
+      } else {
+        console.log(err);
       }
     }
   };
