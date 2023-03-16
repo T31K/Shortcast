@@ -32,7 +32,7 @@ function Content({ items, activeIndex, setActiveIndex, spotifyApi, setCurrentTra
   };
 
   useHotkeys(
-    'tab',
+    ['tab', 'down'],
     () => {
       setActiveIndex((prevActiveIndex) => (prevActiveIndex < 20 ? prevActiveIndex + 1 : 20));
     },
@@ -40,7 +40,7 @@ function Content({ items, activeIndex, setActiveIndex, spotifyApi, setCurrentTra
   );
 
   useHotkeys(
-    'shift+tab',
+    ['shift+tab', 'up'],
     () => {
       setActiveIndex((prevActiveIndex) => (prevActiveIndex > 0 ? prevActiveIndex - 1 : 0));
     },
