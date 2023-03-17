@@ -88,7 +88,7 @@
           "https://api.docktopus.com/updates/{{target}}/{{current_version}}"
       ],
       "dialog": false,
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEVEMzU5QkI4MkQ3QzM2QzgKUldUSU5ud3R1SnMxN2RpczBRR3h5c2hXck53MFNIOTBpLzgwemRQUzIxZGNNVWxPSzdBdnlLZmQK"
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDY3ODg1RUVGNjRFQkZGODUKUldTRi8rdGs3MTZJWjErbkl3TUwrQ0Q2aVYzK3E3VG1mbXNlZ29rMk8rUy9hQ1l2OUNqZEt3QzgK"
     },
     "macOSPrivateApi": true,
     "windows": [
