@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { tabs } from '../helpers/tabHelper.js';
 
+import Update from './Update.jsx';
+
 function Settings({ setShowSettings }) {
   const [currentTab, setCurrentTab] = useState(0);
   return (
@@ -35,16 +37,7 @@ function Settings({ setShowSettings }) {
                 </section>
               );
             case 1:
-              return (
-                <section className="update">
-                  <div className="font-semibold text-lg mb-5">Updates</div>
-                  <div class="my-2">
-                    <span className="title">Version</span>
-                    <span className="value">0.1.1</span>
-                  </div>
-                  <button>Check for updates</button>
-                </section>
-              );
+              return <Update />;
             case 2:
               return (
                 <section className="update">
