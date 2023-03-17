@@ -8,7 +8,7 @@ function Settings({ setShowSettings }) {
   return (
     <div className="settingsWrapper">
       <i
-        class="ri-close-circle-line"
+        className="ri-close-circle-line"
         id="close-btn"
         onClick={() => setShowSettings(false)}
       ></i>
@@ -17,6 +17,7 @@ function Settings({ setShowSettings }) {
           return (
             <i
               className={`${tab.className} ${key === currentTab ? 'active' : null}`}
+              key={key}
               onClick={() => setCurrentTab(key)}
             ></i>
           );
@@ -29,7 +30,7 @@ function Settings({ setShowSettings }) {
               return (
                 <section className="home">
                   <div className="font-semibold text-lg mb-5">Harmonize</div>
-                  <div class="my-2">
+                  <div className="my-2">
                     <span className="title">License</span>
                     <span className="value">Free</span>
                   </div>
