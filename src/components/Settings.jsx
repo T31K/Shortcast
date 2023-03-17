@@ -41,7 +41,7 @@ function Settings({ setShowSettings }) {
             case 2:
               return (
                 <section className="update">
-                  <div className="font-semibold text-lg mb-5">Shortcuts (Coming Soon)</div>
+                  <div className="font-semibold text-lg mb-5">Shortcuts (WIP)</div>
                 </section>
               );
           }
