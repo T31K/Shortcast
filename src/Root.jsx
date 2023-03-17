@@ -1,7 +1,9 @@
+import axios from 'axios';
 import { useContext, useState, useEffect } from 'react';
 import TokenContext from './stores/TokenContext.js';
+
 import { getConfig, setConfig } from './helpers/configHelper.js';
-import axios from 'axios';
+import { setHash } from './helpers/hashHelper.js';
 
 import App from './components/App.jsx';
 import Login from './components/Login.jsx';
@@ -29,6 +31,7 @@ function Root() {
       setEmail(token.email);
     } else {
       setIsLoading(false);
+      await setHash();
       console.log('no token found');
     }
   };

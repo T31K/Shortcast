@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { debounce } from '../helpers/searchHelper.js';
 
-function Search({ search, setSearch, setItems, items, spotifyApi, setActiveIndex }) {
+function Search({ search, setSearch, setItems, items, spotifyApi, setActiveIndex, setShowSettings }) {
   const inputRef = useRef(null);
 
   const handleSearch = (e) => {
@@ -68,14 +68,22 @@ function Search({ search, setSearch, setItems, items, spotifyApi, setActiveIndex
         onBlur={() => setTimeout(() => inputRef.current.focus(), 0)}
         onChange={(e) => handleSearch(e)}
       />
-      <p className="premium">
-        <a
-          href="https://buy.stripe.com/5kA2aba86a9eb5e4gh"
-          target="_blank"
-        >
-          Upgrade Premium
-        </a>
-      </p>
+      <div className="extra">
+        <p className="premium">
+          <a
+            href="https://buy.stripe.com/5kA2aba86a9eb5e4gh"
+            target="_blank"
+          >
+            Upgrade Premium
+          </a>
+        </p>
+        <span className="settings-btn">
+          <i
+            className="ri-settings-4-fill"
+            onClick={() => setShowSettings(true)}
+          ></i>
+        </span>
+      </div>
     </div>
   );
 }

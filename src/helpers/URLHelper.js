@@ -1,0 +1,1 @@
+export const authUrl = `https://accounts.spotify.com/authorize?client_id=8480566ec7fe4f5d96b45004a1a99f72&response_type=code&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state&redirect_uri=https://api.docktopus.com/login#hash=`;

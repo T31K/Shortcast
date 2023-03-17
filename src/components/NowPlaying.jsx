@@ -41,7 +41,7 @@ function NowPlaying({ spotifyApi }) {
   const nextTrack = async () => {};
 
   return (
-    <div className="nowPlaying">
+    <div className="nowPlaying bg-red-50">
       <div className="widget">
         <img
           src={currentTrack.album}

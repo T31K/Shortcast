@@ -11,12 +11,14 @@ import { useHotkeys } from 'react-hotkeys-hook';
 import NowPlaying from './NowPlaying.jsx';
 import Content from './Content.jsx';
 import Search from './Search.jsx';
+import Header from './Header.jsx';
 import Settings from './Settings.jsx';
 import Footer from './Footer.jsx';
 
 function App() {
   const [items, setItems] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [showSettings, setShowSettings] = useState(false);
   const [search, setSearch] = useState('');
   const [currentTrack, setCurrentTrack] = useState({});
   const [spotifyApi, setSpotifyApi] = useState(newSpotifyApi);
@@ -51,9 +53,10 @@ function App() {
         items={items}
         setItems={setItems}
         spotifyApi={spotifyApi}
+        setShowSettings={setShowSettings}
       />
       <div className="commandWrapper">
-        {/* <Settings /> */}
+        {showSettings && <Settings setShowSettings={setShowSettings} />}
         <NowPlaying
           currentTrack={currentTrack}
           spotifyApi={spotifyApi}

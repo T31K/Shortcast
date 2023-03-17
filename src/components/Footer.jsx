@@ -6,9 +6,12 @@ function Footer() {
         <p>Quit</p>
       </div>
       <div>
-        <kbd>cmd</kbd>
-        <kbd>/</kbd>
-        <p>Search</p>
+        <kbd>▲</kbd>
+        <p>Go up</p>
+      </div>
+      <div>
+        <kbd>▼</kbd>
+        <p>Go up</p>
       </div>
       <div>
         <kbd>shift</kbd>

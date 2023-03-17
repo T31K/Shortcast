@@ -20,7 +20,8 @@
         "hide": true,
         "show": true,
         "setFocus": true,
-        "setAlwaysOnTop": true
+        "setAlwaysOnTop": true,
+        "create": true
       },
       "shell": {
         "open": true,
