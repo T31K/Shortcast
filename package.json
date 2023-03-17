@@ -1,13 +1,14 @@
 {
   "name": "harmonize",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "tauri:dev": "tauri dev",
-    "tauri:build": "tauri build"
+    "tauri:build": "tauri build",
+    "generate-key": "tauri signer generate -w ~/.tauri/myapp.key --force"
   },
   "dependencies": {
     "@tauri-apps/api": "^1.2.0",
