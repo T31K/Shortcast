@@ -9,7 +9,7 @@
   },
   "package": {
     "productName": "harmonize",
-    "version": "1.0.3"
+    "version": "1.0.4"
   },
   "tauri": {
     "allowlist": {
@@ -17,7 +17,7 @@
         "all": true
       },
       "process": {
-        "relaunch": false
+        "relaunch": true
       },
       "window": {
         "hide": true,

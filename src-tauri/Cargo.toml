@@ -1,6 +1,6 @@
 [package]
 name = "harmonize"
-version = "1.0.3"
+version = "1.0.4"
 description = "A Tauri App"
 authors = ["you"]
 license = ""
@@ -17,7 +17,7 @@ tauri-build = { version = "1.0.2", features = [] }
 [dependencies]
 serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
-tauri = { version = "1.2.4", features = ["fs-all", "global-shortcut-all", "macos-private-api", "shell-execute", "shell-open", "updater", "window-create", "window-hide", "window-set-always-on-top", "window-set-focus", "window-show"] }
+tauri = { version = "1.2.4", features = ["fs-all", "global-shortcut-all", "macos-private-api", "process-relaunch", "shell-execute", "shell-open", "updater", "window-create", "window-hide", "window-set-always-on-top", "window-set-focus", "window-show"] }
 tauri-api = "0.7.6"
 
 [features]
