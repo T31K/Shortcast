@@ -1,14 +1,29 @@
 import { checkUpdate, installUpdate } from '@tauri-apps/api/updater';
 import { relaunch } from '@tauri-apps/api/process';
+import { useState } from 'react';
 
 function Update() {
-  const handleClick = async () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [updateAvailable, setUpdateAvailable] = useState(false);
+
+  const handleCheck = async () => {
     try {
-      const { shouldUpdate, manifest } = await checkUpdate();
+      setIsLoading(true);
+      const { shouldUpdate } = await checkUpdate();
+
       if (shouldUpdate) {
-        await installUpdate();
-        await relaunch();
+        setIsLoading(false);
+        setUpdateAvailable(true);
       }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleInstall = async () => {
+    try {
+      await installUpdate();
+      await relaunch();
     } catch (error) {
       console.log(error);
     }
@@ -19,9 +34,16 @@ function Update() {
       <div className="font-semibold text-lg mb-5">Updates</div>
       <div className="my-2">
         <span className="title">Version</span>
-        <span className="value">1.0.6</span>
+        <span className="value">1.0.7</span>
       </div>
-      <button onClick={handleClick}>Check for updates</button>
+      {!updateAvailable ? (
+        <button onClick={handleCheck}>
+          Check for updates
+          {isLoading && <span className="updateLoader"></span>}
+        </button>
+      ) : (
+        <button onClick={handleInstall}>Install updates</button>
+      )}
     </section>
   );
 }
