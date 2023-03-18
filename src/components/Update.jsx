@@ -19,7 +19,7 @@ function Update() {
       <div className="font-semibold text-lg mb-5">Updates</div>
       <div className="my-2">
         <span className="title">Version</span>
-        <span className="value">1.0.5</span>
+        <span className="value">1.0.6</span>
       </div>
       <button onClick={handleClick}>Check for updates</button>
     </section>

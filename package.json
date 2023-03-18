@@ -1,13 +1,13 @@
 {
   "name": "harmonize",
   "private": true,
-  "version": "1.0.5",
+  "version": "1.0.6",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "tauri:dev": "tauri dev",
-    "tauri:build": "tauri build",
+    "tauri:build": "tauri build --target universal-apple-darwin",
     "generate-key": "tauri signer generate -w ~/.tauri/myapp.key --force"
   },
   "dependencies": {
