@@ -77,11 +77,11 @@ function Search({ search, setSearch, setItems, items, spotifyApi, setActiveIndex
             Upgrade Premium
           </a>
         </p>
-        <span className="settings-btn">
-          <i
-            className="ri-settings-4-fill"
-            onClick={() => setShowSettings(true)}
-          ></i>
+        <span
+          className="settings-btn"
+          onClick={() => setShowSettings(true)}
+        >
+          <i className="ri-settings-4-fill"></i>
         </span>
       </div>
     </div>

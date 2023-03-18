@@ -1,10 +1,15 @@
 import { checkUpdate, installUpdate } from '@tauri-apps/api/updater';
 import { relaunch } from '@tauri-apps/api/process';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Update() {
   const [isLoading, setIsLoading] = useState(false);
   const [updateAvailable, setUpdateAvailable] = useState(false);
+  const [updateText, setUpdateText] = useState('');
+
+  useEffect(() => {
+    setUpdateText('Check for updates');
+  }, []);
 
   const handleCheck = async () => {
     try {
@@ -14,6 +19,9 @@ function Update() {
       if (shouldUpdate) {
         setIsLoading(false);
         setUpdateAvailable(true);
+      } else {
+        setIsLoading(false);
+        setUpdateText('No updates');
       }
     } catch (error) {
       console.log(error);
@@ -34,11 +42,11 @@ function Update() {
       <div className="font-semibold text-lg mb-5">Updates</div>
       <div className="my-2">
         <span className="title">Version</span>
-        <span className="value">1.0.7</span>
+        <span className="value">1.0.8</span>
       </div>
       {!updateAvailable ? (
         <button onClick={handleCheck}>
-          Check for updates
+          {updateText}
           {isLoading && <span className="updateLoader"></span>}
         </button>
       ) : (
