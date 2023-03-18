@@ -27,7 +27,6 @@
         "create": true
       },
       "shell": {
-        "open": true,
         "execute": true,
         "scope": [{
           "name": "get-track",
