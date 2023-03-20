@@ -84,8 +84,6 @@ function Content({ items, activeIndex, setActiveIndex, spotifyApi, setCurrentTra
             <div
               className={activeIndex !== key ? 'option' : 'option active'}
               key={key}
-
-              // onClick={() => playSong(item)}
             >
               <div className="left">
                 <img
