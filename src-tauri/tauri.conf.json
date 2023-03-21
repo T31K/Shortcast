@@ -9,7 +9,7 @@
   },
   "package": {
     "productName": "harmonize",
-    "version": "1.0.9"
+    "version": "1.0.10"
   },
   "tauri": {
     "allowlist": {
@@ -28,6 +28,7 @@
       },
       "shell": {
         "execute": true,
+        "open": true,
         "scope": [{
           "name": "get-track",
           "cmd": "osascript",

@@ -20,11 +20,15 @@ function Update() {
         setIsLoading(false);
         setUpdateAvailable(true);
       } else {
+        // to do future
         setIsLoading(false);
         setUpdateText('No updates');
       }
     } catch (error) {
-      console.log(error);
+      if (error.includes('parsing')) {
+        setIsLoading(false);
+        setUpdateText('No updates');
+      }
     }
   };
 
@@ -42,7 +46,7 @@ function Update() {
       <div className="font-semibold text-lg mb-5">Updates</div>
       <div className="my-2">
         <span className="title">Version</span>
-        <span className="value">1.0.9</span>
+        <span className="value">1.0.10</span>
       </div>
       {!updateAvailable ? (
         <button onClick={handleCheck}>

@@ -11,7 +11,6 @@ import { useHotkeys } from 'react-hotkeys-hook';
 import NowPlaying from './NowPlaying.jsx';
 import Content from './Content.jsx';
 import Search from './Search.jsx';
-import Header from './Header.jsx';
 import Settings from './Settings.jsx';
 import Footer from './Footer.jsx';
 
