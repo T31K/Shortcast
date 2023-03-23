@@ -15,6 +15,8 @@ function Content({ items, activeIndex, setActiveIndex, spotifyApi, setCurrentTra
     } catch (err) {
       if (err?.message.includes('NO_ACTIVE_DEVICE')) {
         playTrack();
+      } else if (err?.statusCode === 401) {
+        window.location.reload();
       } else {
         console.log(err);
       }
@@ -32,7 +34,7 @@ function Content({ items, activeIndex, setActiveIndex, spotifyApi, setCurrentTra
   };
 
   useHotkeys(
-    ['tab', 'down'],
+    ['down'],
     () => {
       setActiveIndex((prevActiveIndex) => (prevActiveIndex < 20 ? prevActiveIndex + 1 : 20));
     },
@@ -40,7 +42,7 @@ function Content({ items, activeIndex, setActiveIndex, spotifyApi, setCurrentTra
   );
 
   useHotkeys(
-    ['shift+tab', 'up'],
+    ['up'],
     () => {
       setActiveIndex((prevActiveIndex) => (prevActiveIndex > 0 ? prevActiveIndex - 1 : 0));
     },
@@ -83,6 +85,8 @@ function Content({ items, activeIndex, setActiveIndex, spotifyApi, setCurrentTra
           return (
             <div
               className={activeIndex !== key ? 'option' : 'option active'}
+              onMouseEnter={() => setActiveIndex(key)}
+              onClick={playSong}
               key={key}
             >
               <div className="left">

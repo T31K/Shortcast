@@ -54,7 +54,7 @@ function NowPlaying({ spotifyApi }) {
       </div>
       <div className="controls">
         <i className="ri-skip-back-fill"></i>
-        <i className={`ri-${currentTrack.state === ' playing' ? 'pause' : 'play'}-circle-fill`}></i>
+        <i className={`ri-${currentTrack.state.includes('playing') ? 'pause' : 'play'}-circle-fill`}></i>
         <i className="ri-skip-forward-fill"></i>
       </div>
     </div>

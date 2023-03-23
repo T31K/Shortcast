@@ -197,11 +197,19 @@ body {
     
     i.ri-skip-back-fill, i.ri-skip-forward-fill {
       font-size: 17px;
+      
+      &:hover {
+        color: var(--grey7);
+      }
     }
     
     i.ri-pause-circle-fill, i.ri-play-circle-fill {
       font-size: 38px;
       margin: 0 3px;
+      
+      &:hover {
+        color: var(--grey7);
+      }
     }
   }
   
@@ -391,9 +399,12 @@ div.settingsWrapper {
       text-align: center;
       border-top-left-radius: 8px;
       border-bottom-left-radius: 8px;
+      margin-bottom: 3px;
+      margin-right: 0px;
       
       &.active {
         color: var(--grey4);
+        background: rgba(255, 255, 255, 0.063);
       }
       
       &:hover {
@@ -405,9 +416,11 @@ div.settingsWrapper {
   
   div.settings-content {
     height: 100%;
-    margin-left: 30px;
     width: 400px;
     padding: 10px;
+    background: rgba(255, 255, 255, 0.063);
+    border-radius: 8px;
+    border-top-left-radius: 0;
     
     section {
       opacity: 0%;
@@ -415,7 +428,7 @@ div.settingsWrapper {
     }
     
     span.title {
-      background: var(--grey10);
+      background: var(--grey9);
       padding: 4px 8px;
       border-radius: 3px;
       width: 100px;
@@ -435,7 +448,7 @@ div.settingsWrapper {
     }
     
     span.value {
-      background: var(--grey10);
+      background: var(--grey9);
       padding: 4px 8px;
       border-radius: 3px;
       width: 100px;
