@@ -49,7 +49,7 @@ function Update() {
         <span className="value">1.0.10</span>
       </div>
       {!updateAvailable ? (
-        <button onClick={handleCheck}>
+        <button onClick={updateText === 'No updates' ? null : handleCheck}>
           {updateText}
           {isLoading && <span className="updateLoader"></span>}
         </button>
