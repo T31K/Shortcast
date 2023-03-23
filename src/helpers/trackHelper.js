@@ -3,16 +3,15 @@ import { Command } from '@tauri-apps/api/shell';
 export const getNowPlaying = () => {
   const command = new Command('get-track', [
     '-e',
-    'tell application "Spotify" to {artist of current track, artwork url of current track, repeating, shuffling, player state, name of current track}',
+    'tell application "Spotify" to {artist of current track & ";", artwork url of current track & ";", repeating & ";", shuffling & ";", player state & ";", name of current track}',
   ]);
 
   return new Promise((resolve, reject) => {
     let output;
-
     command.stdout.on('data', async (line) => {
-      const [artist, album, repeat, shuffle, state, ...name] = line.split(',');
+      const [artist, album, repeat, shuffle, state, name] = line.split(';,');
       output = {
-        name: name.join(','),
+        name,
         artist,
         album,
         repeat,
