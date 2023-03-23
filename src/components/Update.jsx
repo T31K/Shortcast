@@ -46,7 +46,7 @@ function Update() {
       <div className="font-semibold text-lg mb-5">Updates</div>
       <div className="my-2">
         <span className="title">Version</span>
-        <span className="value">1.0.10</span>
+        <span className="value">1.0.11</span>
       </div>
       {!updateAvailable ? (
         <button onClick={updateText === 'No updates' ? null : handleCheck}>
