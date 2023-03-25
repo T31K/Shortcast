@@ -982,6 +982,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "harmonize"
+version = "1.1.0"
+dependencies = [
+ "cocoa",
+ "core-foundation",
+ "core-graphics",
+ "objc",
+ "objc-foundation",
+ "objc_id",
+ "serde",
+ "serde_json",
+ "tauri",
+ "tauri-build",
+]
+
+[[package]]
 name = "hashbrown"
 version = "0.12.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2605,22 +2621,6 @@ dependencies = [
  "time",
  "uuid 1.2.2",
  "walkdir",
-]
-
-[[package]]
-name = "tauri-macos-spotlight-app"
-version = "0.0.0"
-dependencies = [
- "cocoa",
- "core-foundation",
- "core-graphics",
- "objc",
- "objc-foundation",
- "objc_id",
- "serde",
- "serde_json",
- "tauri",
- "tauri-build",
 ]
 
 [[package]]

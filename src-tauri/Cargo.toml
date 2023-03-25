@@ -1,15 +1,8 @@
 [package]
-<<<<<<< Updated upstream
 name = "harmonize"
-version = "1.0.10"
+version = "1.1.0"
 description = "A Tauri App"
 authors = ["you"]
-=======
-name = "tauri-macos-spotlight-app"
-version = "0.0.0"
-description = "A Tauri macOS spotlight app"
-authors = ["Victor Aremu <victor.olorunbunmi@gmail.com>"]
->>>>>>> Stashed changes
 license = ""
 repository = ""
 edition = "2021"

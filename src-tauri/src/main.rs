@@ -4,8 +4,16 @@
 )]
 
 mod spotlight;
+mod config;
+
+use config::create_folder_and_files;
 
 fn main() {
+    if let Err(e) = create_folder_and_files() {
+        eprintln!("Failed to create folder and file: {}", e);
+        return;
+    }
+    
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![
             spotlight::init_spotlight_window,
