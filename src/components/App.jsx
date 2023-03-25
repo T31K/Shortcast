@@ -1,12 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTokens } from '../hooks/useTokens.js';
 
-import SpotifyWebApi from 'spotify-web-api-node';
 import { newSpotifyApi } from '../helpers/stateHelper.js';
-
-import { registerGlobals, unregisterGlobals } from '../helpers/shortcutHelper.js';
-import { appWindow } from '@tauri-apps/api/window';
-import { useHotkeys } from 'react-hotkeys-hook';
 
 import NowPlaying from './NowPlaying.jsx';
 import Content from './Content.jsx';
@@ -24,24 +19,8 @@ function App() {
   const { token, setToken } = useTokens();
 
   useEffect(() => {
-    registerGlobals();
-    return () => {
-      unregisterGlobals();
-    };
-  }, []);
-
-  useEffect(() => {
     spotifyApi.setAccessToken(token.access_token);
   }, [token.access_token]);
-
-  useHotkeys(
-    'esc',
-    async () => {
-      await appWindow.setAlwaysOnTop(false);
-      await appWindow.hide();
-    },
-    { preventDefault: true, enableOnFormTags: ['INPUT'] }
-  );
 
   return (
     <>

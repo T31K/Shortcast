@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useContext, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import TokenContext from './stores/TokenContext.js';
 
 import { getConfig, setConfig } from './helpers/configHelper.js';
@@ -9,11 +9,20 @@ import App from './components/App.jsx';
 import Login from './components/Login.jsx';
 import Loading from './components/Loading.jsx';
 
+import { invoke } from '@tauri-apps/api/tauri';
+import useGlobal from './hooks/useGlobal';
+
 function Root() {
   const [email, setEmail] = useState(null);
   const [isAuth, setIsAuth] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [token, setToken] = useState(null);
+
+  useGlobal();
+
+  useEffect(() => {
+    invoke('init_spotlight_window');
+  }, []);
 
   useEffect(() => {
     getToken();

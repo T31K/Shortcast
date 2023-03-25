@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.transparent {
+  background-color: transparent;
+  -webkit-app-region: no-drag;
+  pointer-events: none; /* Add this line */
+}
+
